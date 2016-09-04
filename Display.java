@@ -10,24 +10,29 @@ import java.awt.*;
  * @since 9/3/16
  */
 public class Display {
-	JFrame frame;
-	JPanel panel;
+	private JFrame frame;
+	private JPanel panel;
 	
-	Image bufferImage;
-	Graphics bufferGraphics;
+	private Image bufferImage;
+	private Graphics bufferGraphics;
 
-	int WIDTH;
-	int HEIGHT;
+	private String title; 
+	private int width;
+	private int height;
 	
 	/**
 	 * Constructs the display objects and makes them visible
 	 */
-	public Display() {
-		frame = new JFrame("Game");
+	public Display(String t, int w, int h) {
+		title = t;
+		width = w;
+		height = h;
+
+		frame = new JFrame(title);
 		frame.setDefaultCloseOperation(3);
 
 		panel = new JPanel();
-		panel.setPreferredSize(new Dimension(800, 600));
+		panel.setPreferredSize(new Dimension(width, height));
 
 		frame.setLayout(new BorderLayout());
 		frame.add(panel, BorderLayout.CENTER);
@@ -35,11 +40,8 @@ public class Display {
 		
 		frame.setVisible(true);	
 		frame.setResizable(false);
-
-		WIDTH = panel.getWidth();
-		HEIGHT = panel.getHeight();
 		
-		bufferImage = panel.createImage(WIDTH, HEIGHT);
+		bufferImage = panel.createImage(width, height);
 		bufferGraphics = bufferImage.getGraphics();		
 	}
 	
@@ -59,7 +61,7 @@ public class Display {
 	public void update(long FPS) {
 		bufferGraphics.drawString(Long.toString(FPS), 10, 10);
 		panel.getGraphics().drawImage(bufferImage, 0, 0, null);
-		bufferGraphics.clearRect(0, 0, WIDTH, HEIGHT);
+		bufferGraphics.clearRect(0, 0, width, height);
 	}
 
 	/**
@@ -78,5 +80,21 @@ public class Display {
 		panel.addMouseListener(screen);
 		panel.addMouseMotionListener(screen);
 		panel.addKeyListener(screen);
+	}
+
+	public void setIcon(Image icon) {
+		frame.setImageIcon(icon.getImageIcon());
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 }

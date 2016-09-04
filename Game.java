@@ -17,7 +17,7 @@ public class Game {
 	private Screen currentScreen;
 
 	//FPS Management\\
-	final int FRAME_GOAL = 60;
+	final int FRAME_GOAL;
 	long waitTime; //the real amount of time to wait based on how long the loop took
 	long maxWaitTime; //roughly the amount of time to wait if the loop takes no time
 	long startTime; //the time when run() was called
@@ -33,10 +33,16 @@ public class Game {
 	 * and FPS information.
 	 */
 	public Game() {
-		display = new Display();
+		this("Game", 800, 600, 60);
+	}
+
+	public Game(String title, int width, int height, int frameGoal) {
+		display = new Display(title, width, height);
+
+		FRAME_GOAL = frameGoal;
 
 		maxWaitTime = 1000 / FRAME_GOAL;
-	}
+	}	
 
 	/**
 	 * The main loop, updates the screen and the display
@@ -103,10 +109,10 @@ public class Game {
 	}
 
 	/**
-	 * @return the buffered graphics object from the display
+	 * @return the display object associated with the game's window
 	 */
-	public Graphics getGraphics() {
-		return display.getGraphics();
+	public Display getDisplay() {
+		return display;
 	}
 	
 	/**
