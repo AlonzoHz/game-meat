@@ -7,7 +7,7 @@ import java.awt.*;
  * and the graphics.
  *
  * @author Alonzo Hernandez
- * @since 9/3/16
+ * @since 9/6/16
  */
 public class Display {
 	private JFrame frame;
@@ -16,7 +16,8 @@ public class Display {
 	private Image bufferImage;
 	private Graphics bufferGraphics;
 
-	private String title; 
+	private String title;
+       	private Image icon;	
 	private int width;
 	private int height;
 	
@@ -27,9 +28,11 @@ public class Display {
 		title = t;
 		width = w;
 		height = h;
+		icon = ResourceLoader.loadImage("gamemeat.png");
 
 		frame = new JFrame(title);
 		frame.setDefaultCloseOperation(3);
+		setIcon(icon);
 
 		panel = new JPanel();
 		panel.setPreferredSize(new Dimension(width, height));
@@ -81,9 +84,15 @@ public class Display {
 		panel.addMouseMotionListener(screen);
 		panel.addKeyListener(screen);
 	}
-
-	public void setIcon(Image icon) {
-		frame.setImageIcon(icon.getImageIcon());
+	
+	/**
+	 * Sets the window's icon to the Image. The source file should
+	 * have square dimensions. 
+	 *
+	 * @param icon the Image that should be set as the window icon
+	 */
+	public void setIcon(Image image) {
+		frame.setIconImage(image);
 	}
 
 	public String getTitle() {
