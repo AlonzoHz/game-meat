@@ -1,4 +1,6 @@
-import java.awt.event.*;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 /**
  * A listener based class for handling all of the game-related
@@ -7,7 +9,7 @@ import java.awt.event.*;
  * functions
  *
  * @author Alonzo Hernandez
- * @since 9/3/16
+ * @since 9/23/16
  */
 public abstract class Screen implements MouseListener, MouseMotionListener, KeyListener {
 	/**

@@ -1,5 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Graphics;
 
 /**
  * Display is a capsule for the objects related to
@@ -7,7 +11,7 @@ import java.awt.*;
  * and the graphics.
  *
  * @author Alonzo Hernandez
- * @since 9/6/16
+ * @since 9/23/16
  */
 public class Display {
 	private JFrame frame;
@@ -17,7 +21,7 @@ public class Display {
 	private Graphics bufferGraphics;
 
 	private String title;
-       	private Image icon;	
+    private Image icon;	
 	private int width;
 	private int height;
 	
