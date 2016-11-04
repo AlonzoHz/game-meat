@@ -1,5 +1,7 @@
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.io.File;
 
 /**
  * A one-stop shopping class for loading resource files.
@@ -21,7 +23,15 @@ public class ResourceLoader {
 		return resource;
 	}
 
-	//ADD FONT LOADER
+	public static Font loadFont(String path, float size) {
+        try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File(path));
+            return font.deriveFont(size);
+        } catch (Exception e) {
+            System.out.println("Bad font");
+        }
+        return null;
+    }
 	
 	//ADD SOUND LOADER
 }
