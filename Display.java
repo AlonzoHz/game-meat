@@ -75,18 +75,18 @@ public class Display {
 	 * @param screen Removes the Screen as a listener for the window
 	 */
 	public void removeListeners(Screen screen) {
-		panel.removeMouseListener(screen);
-		panel.removeMouseMotionListener(screen);
-		panel.removeKeyListener(screen);
+		frame.removeMouseListener(screen);
+		frame.removeMouseMotionListener(screen);
+		frame.removeKeyListener(screen);
 	}
 
 	/**
 	 * @param screen Adds the Screen as a listener for the window
 	 */
 	public void addListeners(Screen screen) {
-		panel.addMouseListener(screen);
-		panel.addMouseMotionListener(screen);
-		panel.addKeyListener(screen);
+		frame.addMouseListener(screen);
+		frame.addMouseMotionListener(screen);
+		frame.addKeyListener(screen);
 	}
 	
 	/**
